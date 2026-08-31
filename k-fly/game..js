@@ -632,33 +632,33 @@
 
 
     /* =====================================
-       MOUSE / TOUCH
-       ===================================== */
+   MOUSE / TOUCH / MOBILE
+   ===================================== */
 
-    board.addEventListener(
-        "pointerdown",
-        event => {
+board.addEventListener(
+    "pointerdown",
+    event => {
 
-            if (
-                event.target ===
-                startButton
-            ) return;
+        // Don't trigger the game when pressing buttons
+        if (
+            event.target === startButton ||
+            event.target === restartButton
+        ) {
+            return;
+        }
 
+        // Prevent scrolling / browser gestures
+        event.preventDefault();
 
-            if (
-                event.target ===
-                restartButton
-            ) return;
+        if (running) {
 
-
-            if (running) {
-
-                flap();
-
-            }
+            flap();
 
         }
-    );
+
+    },
+    { passive: false }
+);
 
 
     /* =====================================
