@@ -603,16 +603,14 @@
        START BUTTON
        ===================================== */
 
-    startButton.addEventListener(
-        "click",
-        event => {
+    startButton.addEventListener("click", () => {
+    startGame();
+});
 
-            event.stopPropagation();
-
-            startGame();
-
-        }
-    );
+startButton.addEventListener("touchend", (event) => {
+    event.preventDefault();
+    startGame();
+}, { passive: false });
 
 
     /* =====================================
