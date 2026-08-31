@@ -788,3 +788,31 @@ a {
     cursor: pointer;
 }
 
+/* =========================================
+   MOBILE GAME CONTROLS
+   ========================================= */
+
+.game-overlay {
+    pointer-events: auto;
+}
+
+.game-overlay button {
+    position: relative;
+    z-index: 9999;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 140px;
+    min-height: 46px;
+
+    pointer-events: auto;
+    touch-action: manipulation;
+
+    -webkit-user-select: none;
+    user-select: none;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
