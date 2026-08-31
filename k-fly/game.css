@@ -293,7 +293,7 @@ a {
 
     overflow: hidden;
 
-    touch-action: manipulation;
+    touch-action: none;
 
     background:
 
