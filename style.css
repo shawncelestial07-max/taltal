@@ -3015,3 +3015,22 @@ footer {
         padding: 14px 18px;
     }
 }
+
+/* =========================================
+   MOBILE MENU — CENTER LET'S CONNECT
+========================================= */
+
+@media (max-width: 900px) {
+
+    .nav-links.mobile-open .nav-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+
+        margin-top: 10px;
+        width: 100%;
+    }
+
+}
