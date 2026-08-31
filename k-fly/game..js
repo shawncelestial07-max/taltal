@@ -639,21 +639,19 @@ board.addEventListener(
     "pointerdown",
     event => {
 
-        // Don't trigger the game when pressing buttons
+        // Let buttons and links work normally
         if (
-            event.target === startButton ||
-            event.target === restartButton
+            event.target.closest("button") ||
+            event.target.closest("a")
         ) {
             return;
         }
 
-        // Prevent scrolling / browser gestures
+        // Prevent scrolling while playing
         event.preventDefault();
 
         if (running) {
-
             flap();
-
         }
 
     },
