@@ -600,23 +600,10 @@
 
 
     /* =====================================
-       START BUTTON
-       ===================================== */
-
-    startButton.addEventListener("click", startGame);
-
-    /* =====================================
-       RESTART BUTTON
-       ===================================== */
-
-    restartButton.addEventListener("click", startGame);
-
-
-   /* =====================================
-   BUTTONS + TOUCH CONTROLS
+   START / RESTART BUTTONS
    ===================================== */
 
-function pressStart(event) {
+function startFromButton(event) {
 
     event.preventDefault();
     event.stopPropagation();
@@ -625,14 +612,32 @@ function pressStart(event) {
 
 }
 
+
+/* START GAME */
 startButton.addEventListener(
-    "pointerup",
-    pressStart
+    "click",
+    startFromButton
+);
+
+
+/* TRY AGAIN */
+restartButton.addEventListener(
+    "click",
+    startFromButton
+);
+
+
+/* MOBILE FALLBACK */
+startButton.addEventListener(
+    "touchend",
+    startFromButton,
+    { passive: false }
 );
 
 restartButton.addEventListener(
-    "pointerup",
-    pressStart
+    "touchend",
+    startFromButton,
+    { passive: false }
 );
 
 
