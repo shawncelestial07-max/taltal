@@ -612,64 +612,85 @@
     restartButton.addEventListener("click", startGame);
 
 
-    /* =====================================
-   MOUSE / TOUCH / MOBILE
+   /* =====================================
+   BUTTONS + TOUCH CONTROLS
+   ===================================== */
+
+function pressStart(event) {
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    startGame();
+
+}
+
+startButton.addEventListener(
+    "pointerup",
+    pressStart
+);
+
+restartButton.addEventListener(
+    "pointerup",
+    pressStart
+);
+
+
+/* =====================================
+   GAME BOARD TOUCH
    ===================================== */
 
 board.addEventListener(
     "pointerdown",
     event => {
 
-        // Let buttons and links work normally
+        // Buttons and links have their own controls
         if (
-            event.target.closest("button") ||
-            event.target.closest("a")
+            event.target instanceof Element &&
+            event.target.closest("button, a")
         ) {
             return;
         }
 
-        // Prevent scrolling while playing
+        if (!running) {
+            return;
+        }
+
         event.preventDefault();
 
-        if (running) {
-            flap();
-        }
+        flap();
 
     },
     { passive: false }
 );
 
 
-    /* =====================================
-       KEYBOARD
-       ===================================== */
+/* =====================================
+   KEYBOARD
+   ===================================== */
 
-    document.addEventListener(
-        "keydown",
-        event => {
+document.addEventListener(
+    "keydown",
+    event => {
 
-            if (
-                event.code !==
-                "Space"
-            ) return;
+        if (event.code !== "Space") {
+            return;
+        }
 
+        event.preventDefault();
 
-            event.preventDefault();
+        if (running) {
 
+            flap();
 
-            if (running) {
+        } else {
 
-                flap();
-
-            } else {
-
-                startGame();
-
-            }
+            startGame();
 
         }
-    );
 
+    }
+);
 
     /* =====================================
        INITIAL POSITION
