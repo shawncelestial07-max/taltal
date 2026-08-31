@@ -762,3 +762,21 @@ a {
     cursor: pointer;
 }
 
+/* MOBILE BUTTONS */
+
+.game-overlay button {
+    position: relative;
+    z-index: 9999;
+    pointer-events: auto;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.game-overlay a {
+    position: relative;
+    z-index: 9999;
+    pointer-events: auto;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
