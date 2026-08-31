@@ -1,0 +1,764 @@
+/* =========================================
+   K-FLY GAME
+   ========================================= */
+
+:root {
+
+    --cream: #ead8b9;
+
+    --burgundy: #5b1727;
+
+    --teal: #477d79;
+
+    --olive: #72734d;
+
+    --ink: #171211;
+
+}
+
+
+/* RESET */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    min-height: 100%;
+}
+
+
+body {
+
+    background: var(--cream);
+
+    color: var(--ink);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+}
+
+
+button,
+a {
+    font: inherit;
+}
+
+
+/* =========================================
+   PAGE
+   ========================================= */
+
+.page {
+
+    min-height: 100vh;
+
+    padding:
+        26px
+        7vw
+        70px;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 70px;
+
+}
+
+
+.logo {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    border:
+        1px solid
+        var(--ink);
+
+    border-radius: 50%;
+
+    color: var(--ink);
+
+    text-decoration: none;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 28px;
+
+}
+
+
+.back-link {
+
+    color: var(--ink);
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: .16em;
+
+}
+
+
+/* =========================================
+   INTRO
+   ========================================= */
+
+.intro {
+
+    max-width: 800px;
+
+    margin:
+        0 auto
+        40px;
+
+    text-align: center;
+
+}
+
+
+.eyebrow {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: var(--burgundy);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: .2em;
+
+}
+
+
+.intro h1 {
+
+    margin: 0 0 14px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            48px,
+            8vw,
+            92px
+        );
+
+    line-height: .9;
+
+    font-weight: 400;
+
+}
+
+
+.intro p {
+
+    margin: 0 auto;
+
+    max-width: 450px;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    opacity: .7;
+
+}
+
+
+/* =========================================
+   GAME WRAPPER
+   ========================================= */
+
+.game-wrapper {
+
+    width:
+        min(
+            900px,
+            100%
+        );
+
+    margin: 0 auto;
+
+    background:
+        var(--ink);
+
+    box-shadow:
+        15px 15px 0
+        rgba(
+            91,
+            23,
+            39,
+            .16
+        );
+
+}
+
+
+/* =========================================
+   SCORE BAR
+   ========================================= */
+
+.score-bar {
+
+    min-height: 54px;
+
+    padding:
+        0 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background:
+        var(--burgundy);
+
+    color:
+        var(--cream);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: .16em;
+
+}
+
+
+.score-bar strong {
+
+    margin-left: 7px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 18px;
+
+    font-weight: 400;
+
+}
+
+
+/* =========================================
+   GAME BOARD
+   ========================================= */
+
+.game-board {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 430px;
+
+    overflow: hidden;
+
+    touch-action: manipulation;
+
+    background:
+
+        radial-gradient(
+            circle at 75% 20%,
+            rgba(
+                71,
+                125,
+                121,
+                .28
+            ),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            135deg,
+            #ead8b9,
+            #d5bd98
+        );
+
+}
+
+
+/* BACKGROUND LINES */
+
+.game-board::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        repeating-linear-gradient(
+            90deg,
+
+            transparent 0 79px,
+
+            rgba(
+                91,
+                23,
+                39,
+                .055
+            ) 80px,
+
+            transparent 81px
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================
+   PLAYER
+   ========================================= */
+
+.player {
+
+    position: absolute;
+
+    left: 18%;
+
+    top: 45%;
+
+    width: 48px;
+
+    height: 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background:
+        var(--burgundy);
+
+    color:
+        var(--cream);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 28px;
+
+    z-index: 5;
+
+    user-select: none;
+
+    will-change:
+        top,
+        transform;
+
+}
+
+
+/* =========================================
+   OVERLAYS
+   ========================================= */
+
+.game-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 20;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        rgba(
+            23,
+            18,
+            17,
+            .94
+        );
+
+    color:
+        var(--cream);
+
+}
+
+
+.game-overlay.hidden {
+
+    display: none;
+
+}
+
+
+/* =========================================
+   K LOGO
+   ========================================= */
+
+.k-logo {
+
+    width: 64px;
+
+    height: 64px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin-bottom: 16px;
+
+    border:
+        1px solid
+        var(--cream);
+
+    border-radius: 50%;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 38px;
+
+    animation:
+        kGlow
+        2s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes kGlow {
+
+    0%,
+    100% {
+
+        box-shadow:
+            0 0 0
+            rgba(
+                234,
+                216,
+                185,
+                0
+            );
+
+    }
+
+
+    50% {
+
+        box-shadow:
+            0 0 28px
+            rgba(
+                234,
+                216,
+                185,
+                .25
+            );
+
+    }
+
+}
+
+
+/* =========================================
+   TITLE
+   ========================================= */
+
+.game-overlay h2 {
+
+    margin:
+        0 0 9px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 32px;
+
+    font-weight: 400;
+
+}
+
+
+.game-overlay p {
+
+    margin:
+        0 0 24px;
+
+    font-size: 10px;
+
+    letter-spacing: .08em;
+
+    opacity: .65;
+
+}
+
+
+/* =========================================
+   BUTTON
+   ========================================= */
+
+.game-overlay button {
+
+    padding:
+        12px 22px;
+
+    border:
+        1px solid
+        var(--cream);
+
+    background:
+        transparent;
+
+    color:
+        var(--cream);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: .16em;
+
+    cursor: pointer;
+
+    transition:
+        .2s ease;
+
+}
+
+
+.game-overlay button:hover {
+
+    background:
+        var(--cream);
+
+    color:
+        var(--burgundy);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* =========================================
+   GAME OVER
+   ========================================= */
+
+.final-score {
+
+    margin:
+        0 0 22px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 72px;
+
+    font-weight: 400;
+
+}
+
+
+/* =========================================
+   OBSTACLES
+   ========================================= */
+
+.obstacle {
+
+    position: absolute;
+
+    width: 62px;
+
+    z-index: 3;
+
+}
+
+
+.obstacle.top {
+
+    top: 0;
+
+}
+
+
+.obstacle.bottom {
+
+    bottom: 0;
+
+}
+
+
+.obstacle.burgundy {
+
+    background:
+        var(--burgundy);
+
+}
+
+
+.obstacle.teal {
+
+    background:
+        var(--teal);
+
+}
+
+
+.obstacle.olive {
+
+    background:
+        var(--olive);
+
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.game-footer {
+
+    min-height: 40px;
+
+    padding:
+        0 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    color:
+        var(--cream);
+
+    font-size: 7px;
+
+    letter-spacing: .18em;
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (
+    max-width: 600px
+) {
+
+    .page {
+
+        padding:
+            20px
+            14px
+            55px;
+
+    }
+
+
+    .header {
+
+        margin-bottom: 55px;
+
+    }
+
+
+    .game-board {
+
+        height: 500px;
+
+    }
+
+
+    .player {
+
+        width: 42px;
+
+        height: 42px;
+
+        font-size: 24px;
+
+    }
+
+
+    .obstacle {
+
+        width: 52px;
+
+    }
+
+
+    .intro h1 {
+
+        font-size: 52px;
+
+    }
+
+
+    .score-bar {
+
+        padding:
+            0 15px;
+
+    }
+
+
+}
+
+.logo {
+    position: relative;
+    z-index: 9999;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
