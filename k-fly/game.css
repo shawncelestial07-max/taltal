@@ -816,3 +816,18 @@ a {
     -webkit-tap-highlight-color: transparent;
 }
 
+#restartButton {
+    position: relative;
+    z-index: 99999;
+    display: block;
+    pointer-events: auto;
+    touch-action: manipulation;
+}
+
+#startButton {
+    position: relative;
+    z-index: 99999;
+    display: block;
+    pointer-events: auto;
+    touch-action: manipulation;
+}
