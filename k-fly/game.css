@@ -780,3 +780,11 @@ a {
     -webkit-tap-highlight-color: transparent;
 }
 
+.game-overlay button {
+    position: relative;
+    z-index: 100;
+    pointer-events: auto;
+    touch-action: manipulation;
+    cursor: pointer;
+}
+
