@@ -619,16 +619,14 @@
        RESTART BUTTON
        ===================================== */
 
-    restartButton.addEventListener(
-        "click",
-        event => {
+    restartButton.addEventListener("click", () => {
+    startGame();
+});
 
-            event.stopPropagation();
-
-            startGame();
-
-        }
-    );
+restartButton.addEventListener("touchend", (event) => {
+    event.preventDefault();
+    startGame();
+}, { passive: false });
 
 
     /* =====================================
