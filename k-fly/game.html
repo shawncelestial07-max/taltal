@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>K-FLY — Mini Game</title>
+
+    <link rel="stylesheet" href="game.css">
+</head>
+
+<body>
+
+    <main class="page">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <a href="../index.html" class="logo">
+    K
+</a>
+
+            <a href="../index.html" class="back-link">
+    BACK TO PORTFOLIO
+</a>
+
+        </header>
+
+
+        <!-- INTRO -->
+        <section class="intro">
+
+            <span class="eyebrow">
+                A LITTLE SOMETHING EXTRA
+            </span>
+
+            <h1>
+                PLAY A GAME.
+            </h1>
+
+            <p>
+                Guide the K through the panels.
+                How far can you go?
+            </p>
+
+        </section>
+
+
+        <!-- GAME -->
+        <section class="game-wrapper">
+
+            <!-- SCORE -->
+            <div class="score-bar">
+
+                <span>
+                    SCORE
+                    <strong id="score">0</strong>
+                </span>
+
+                <span>
+                    BEST
+                    <strong id="best">0</strong>
+                </span>
+
+            </div>
+
+
+            <!-- GAME BOARD -->
+            <div class="game-board" id="gameBoard">
+
+
+                <!-- START SCREEN -->
+                <div class="game-overlay" id="startScreen">
+
+                    <a href="../index.html" class="logo" aria-label="Back to portfolio">
+    K
+</a>
+
+                    <h2>
+                        K-FLY
+                    </h2>
+
+                    <p>
+                        Click, tap, or press SPACE to fly.
+                    </p>
+
+                    <button id="startButton">
+                        START GAME
+                    </button>
+
+                </div>
+
+
+                <!-- PLAYER -->
+                <div class="player" id="player">
+                    K
+                </div>
+
+
+                <!-- GAME OVER -->
+                <div
+                    class="game-overlay game-over"
+                    id="gameOver"
+                >
+
+                    <span class="eyebrow">
+                        RUN COMPLETE
+                    </span>
+
+                    <div
+                        class="final-score"
+                        id="finalScore"
+                    >
+                        0
+                    </div>
+
+                    <button id="restartButton">
+                        TRY AGAIN
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOTTOM -->
+            <div class="game-footer">
+
+                <span>
+                    SPACE / CLICK / TAP
+                </span>
+
+                <span>
+                    KEEP FLYING
+                </span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- GAME JAVASCRIPT -->
+    <script src="game.js"></script>
+
+</body>
+</html>
