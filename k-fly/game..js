@@ -603,28 +603,13 @@
        START BUTTON
        ===================================== */
 
-    startButton.addEventListener("click", () => {
-    startGame();
-});
-
-startButton.addEventListener("touchend", (event) => {
-    event.preventDefault();
-    startGame();
-}, { passive: false });
-
+    startButton.addEventListener("click", startGame);
 
     /* =====================================
        RESTART BUTTON
        ===================================== */
 
-    restartButton.addEventListener("click", () => {
-    startGame();
-});
-
-restartButton.addEventListener("touchend", (event) => {
-    event.preventDefault();
-    startGame();
-}, { passive: false });
+    restartButton.addEventListener("click", startGame);
 
 
     /* =====================================
