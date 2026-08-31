@@ -374,14 +374,10 @@ button {
     width: 67%;
     height: 70%;
 
-    background:
-        repeating-linear-gradient(
-            160deg,
-            #171514 0 15px,
-            #ead8b9 15px 35px,
-            #171514 35px 48px,
-            #ead8b9 48px 70px
-        );
+   background-image: url("assets/leopard.jpg");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
 
     transform: rotate(-3deg);
 
@@ -409,29 +405,12 @@ button {
     width: 48%;
     height: 48%;
 
-    background-color: var(--tan);
+    background-image: url("assets/zebra.jpg");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
 
-    background-image:
-        radial-gradient(
-            ellipse,
-            #1b1110 0 18%,
-            transparent 20%
-        ),
-        radial-gradient(
-            ellipse,
-            #281514 0 12%,
-            transparent 15%
-        );
-
-    background-size:
-        55px 50px,
-        75px 65px;
-
-    background-position:
-        0 0,
-        30px 25px;
-
-    border: 8px solid var(--rose);
+    border: 5px solid #5b1727;
 }
 
 .olive-panel {
@@ -1036,13 +1015,13 @@ button {
 
     position: absolute;
 
-    right: -50px;
+    right: -80px;
 
-    bottom: -70px;
+    bottom: -90px;
 
-    width: 350px;
+    width: 280px;
 
-    height: 260px;
+    height: 210px;
 
     transform: rotate(-14deg);
 
@@ -1056,6 +1035,8 @@ button {
         );
 
     opacity: 0.65;
+
+    pointer-events: none;
 }
 
 
@@ -2832,6 +2813,92 @@ footer {
     .va-label,
     .chat-label {
         font-size: 6px;
+    }
+
+}
+
+/* =========================================
+   MINI GAME CTA
+   ========================================= */
+
+.game-cta {
+    width: 100%;
+    margin-top: 70px;
+    padding: 35px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(23, 18, 17, 0.2);
+    border-bottom: 1px solid rgba(23, 18, 17, 0.2);
+}
+
+.game-cta-label {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+
+    opacity: 0.55;
+}
+
+.game-cta-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    color: #171211;
+    text-decoration: none;
+
+    font-family: var(--serif);
+    font-size: 28px;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+.game-cta-link span {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+
+    transition:
+        transform 0.3s ease;
+}
+
+.game-cta-link:hover {
+    color: #5b1727;
+    transform: translateY(-3px);
+}
+
+.game-cta-link:hover span {
+    transform: translate(4px, -4px);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .game-cta {
+        margin-top: 50px;
+        padding: 28px 15px;
+    }
+
+    .game-cta-label {
+        font-size: 7px;
+    }
+
+    .game-cta-link {
+        font-size: 22px;
     }
 
 }
